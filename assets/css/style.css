@@ -1,0 +1,11 @@
+.container{
+    background-color: aquamarine;
+    margin: 2%;
+}
+
+.answer {
+    font-size: 24px;
+} 
+.answer:hover {
+    font-weight: bolder;
+}

@@ -1,12 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <link rel="stylesheet" href="assets/css/reset.css"> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
+
 <body>
+    <div class="container d-none" id="mainPage">
+        <h1 class="display-2">Trivia Game</h1>
+        <div class="timer">Countdown</div>
+        <div class="question">Question?</div>
+        <ul>
+            <li class="lead answer" data-index="0">Answer</li>
+            <li class="lead answer" data-index="1">Answer</li>
+            <li class="lead answer" data-index="2">Answer</li>
+            <li class="lead answer" data-index="3">Answer</li>
+        </ul>
+    </div>
+
+    <div class="container d-none" id="startPage">
+        <h1 class="display-2">Trivia Game</h1>
+        <button class="btn btn-dark">Start</button>
+    </div>
+
+    <div class="container d-none" id="responsePage">
+        <h1 class="display-2">Trivia Game</h1>
+        <p class="lead" id="message">Correct/Wrong</p>
+        <p class="lead" id="info">here's the correct answer or a fun fact ok??</p>
+    </div>
     
+    <div class="container d-none" id="resultPage">
+        <h1 class="display-2">Trivia Game</h1>
+        <p class="lead" id="percentage">25%</p>
+        <p class="lead" id="ratio">1 out of 4 questions correct</p>
+    </div>
+    <script type="text/javascript" src="assets/js/app.js"></script>
 </body>
+
 </html>

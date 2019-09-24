@@ -17,7 +17,7 @@ let ResponsePage = {
     displayStartPage: function () {
         $('#startPage').removeClass('d-none');
     },
-    displayTimesUp: function () {
+    displayTimesUp: function (question) {
         $('#mainPage').addClass('d-none');
         $('#responsePage').removeClass('d-none');
         $('#message').html('Time\'s up!');
@@ -41,7 +41,6 @@ let ResponsePage = {
     displayResults: function () {
         $('#mainPage').addClass('d-none');
         $('#resultPage').removeClass('d-none');
-
     },
     reset: function () {
         $('#responsePage').addClass('d-none');
@@ -51,6 +50,19 @@ let ResponsePage = {
         questions[counter].display();
     }
 };
+
+function grade(q){
+    let corrects = 0;
+    let wrongs = 0; 
+    let unanswered = 0;
+    if (guess.data('index') === q.answerSet.indexOf(q.correctAnswer)){
+
+    } else if (q.time <= 0) {
+
+    } else {
+        
+    }
+}
 
 const questions = [
     new Question({
@@ -82,7 +94,7 @@ const questions = [
         answerSet: ["Church Organist", "Carpenter", "Tax Attorney", "Male Model"],
         correctAnswer: "Church Organist",
         funFact: "He worked at St. Thomas Church in Leipzig until his death in 1705."
-    }),
+    })
 ];
 
 

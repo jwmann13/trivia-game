@@ -10,10 +10,18 @@ class Question {
     checkAnswer(guess) {
         if (guess.data('index') === this.answerSet.indexOf(this.correctAnswer)) {
             clearTimeout(this.clock)
-            ResponsePage.displayCorrectAnswer(this);
+            if (counter === questions.length - 1) {
+                ResponsePage.displayResults();
+            } else {
+                ResponsePage.displayCorrectAnswer(this);
+            }
         } else {
             clearTimeout(this.clock)
-            ResponsePage.displayWrongAnswer(this);
+            if (counter === questions.length - 1) {
+                ResponsePage.displayResults();
+            } else {
+                ResponsePage.displayWrongAnswer(this);
+            }
         }
     }
     display() {
@@ -24,6 +32,7 @@ class Question {
         }
     }
     timer() {
+        let inst = this;
         let time = this.time;
         $('.timer').html('Time left 00:' + time);
         this.clock = setInterval(function () {
@@ -34,11 +43,11 @@ class Question {
                 $('.timer').html('Time left 00:' + time);
             }
             if (time <= 0) {
-                time = 30;
-                this.time = time;
-                clearTimeout(this.clock);
-                ResponsePage.displayTimesUp();
+                inst.time = time;
+                clearTimeout(inst.clock);
+                ResponsePage.displayTimesUp(inst);
             }
         }, 1000);
     }
+
 };

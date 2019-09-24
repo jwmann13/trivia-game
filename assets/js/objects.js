@@ -6,17 +6,20 @@ class Question {
         this.funFact = q.funFact;
         this.time = 30;
         this.clock;
+        this.answered = false;
     }
     checkAnswer(guess) {
         if (guess.data('index') === this.answerSet.indexOf(this.correctAnswer)) {
-            clearTimeout(this.clock)
+            clearTimeout(this.clock);
+            this.answered = true;
             if (counter === questions.length - 1) {
                 ResponsePage.displayResults();
             } else {
                 ResponsePage.displayCorrectAnswer(this);
             }
         } else {
-            clearTimeout(this.clock)
+            clearTimeout(this.clock);
+            this.answered = false;
             if (counter === questions.length - 1) {
                 ResponsePage.displayResults();
             } else {
@@ -45,9 +48,40 @@ class Question {
             if (time <= 0) {
                 inst.time = time;
                 clearTimeout(inst.clock);
-                ResponsePage.displayTimesUp(inst);
+                if (counter === questions.length - 1) {
+                    ResponsePage.displayResults();
+                } else {
+                    ResponsePage.displayTimesUp(inst);
+                }
             }
         }, 1000);
     }
-
 };
+
+class QuestionGroup {
+     constructor (group){
+         this.counter = 0;
+         this.questionArray = group;
+         this.gradedQuiz = {
+            'correct': 0,
+            'wrong': 0,
+            'unanswered': 0
+        };
+     }
+     gradeQuiz() {
+        let corrects = 0;
+        let wrongs = 0;
+        let unanswered = 0;
+        for (let i = 0; i < this.questionArray.length; i++) {
+            const element = this.questionArray[i];
+            if (element.answered) {
+                this.gradedQuiz.correct = corrects++;
+            } else if (element.time <= 0) {
+                this.gradedQuiz.unanswered = unanswered++;
+            } else {
+                this.gradedQuiz.wrong = wrongs++;
+            }
+        }
+        return this.gradedQuiz;
+    }
+}

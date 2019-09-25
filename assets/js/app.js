@@ -11,7 +11,7 @@ $(document).ready(function () {
         questions.questionArray[counter].checkAnswer($(this));
     });
     $('#resetBtn').on('click', function (event) {
-
+        fullReset();
     });
 });
 
@@ -44,7 +44,7 @@ let ResponsePage = {
         let grade = questions.gradeQuiz();
         $('#mainPage').addClass('d-none');
         $('#resultPage').removeClass('d-none');
-        $('#percentage').html(Math.floor((grade.correct / questions.questionArray.length)*100) + "%");
+        $('#percentage').html(Math.floor((grade.correct / questions.questionArray.length) * 100) + "%");
         $('#ratio').html("Correct: " + grade.correct + "</br>Wrong: " + grade.wrong + "</br>Unanswered: " + grade.unanswered);
     },
     reset: function () {
@@ -60,9 +60,42 @@ let ResponsePage = {
     }
 };
 
-function fullReset(){
+function fullReset() {
+    $('#resultPage').addClass('d-none');
     counter = 0;
-
+    questions = new QuestionGroup([
+        new Question({
+            question: "Which composers form the 'Three B's' of classical music?",
+            answerSet: ["Buttigigeg, Berkowitz, and Bond", "Beelzebub, Bertram, and Bozo", "Berlioz, Barney, and Brin", "Bach, Beethoven, and Brahms"],
+            correctAnswer: "Bach, Beethoven, and Brahms",
+            funFact: "These composers all lived at different times and are meant to represent the best of the different eras."
+        }),
+        new Question({
+            question: "Mozart lived in which century?",
+            answerSet: ["18th century", "13th century", "20th century", "23rd century"],
+            correctAnswer: "18th century",
+            funFact: "The 1700s are known as the Classical Period."
+        }),
+        new Question({
+            question: "Gregorian chant was practiced by what type of people?",
+            answerSet: ["Merchants", "Monks", "Farmers", "Royalty"],
+            correctAnswer: "Monks",
+            funFact: "Monks sang these simple chants to praise God."
+        }),
+        new Question({
+            question: "What nationality was Nikolai Rimsky-Korsakov, composer of 'Flight of the Bumblebee'?",
+            answerSet: ["English", "French", "Russian", "Dutch"],
+            correctAnswer: "Russian",
+            funFact: "Rimsky-Korsakov was a member of 'The Five', a group of Russian composers who intended to create a distinctly Russian style of music."
+        }),
+        new Question({
+            question: "J.S. Bach did not make his living as a composer but in what profession?",
+            answerSet: ["Church Organist", "Carpenter", "Tax Attorney", "Male Model"],
+            correctAnswer: "Church Organist",
+            funFact: "He worked at St. Thomas Church in Leipzig until his death in 1705."
+        })
+    ]);
+    ResponsePage.displayStartPage();
 }
 
 let questions =

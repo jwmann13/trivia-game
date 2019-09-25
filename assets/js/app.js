@@ -24,21 +24,21 @@ let ResponsePage = {
         $('#responsePage').removeClass('d-none');
         $('#message').html('Time\'s up!');
         $('#info').html('Answer a little faster next time!');
-        setTimeout(this.reset, 1000);
+        setTimeout(this.reset, 1500);
     },
     displayWrongAnswer: function (question) {
         $('#mainPage').addClass('d-none');
         $('#responsePage').removeClass('d-none');
         $('#message').html('That\'s the wrong answer!');
         $('#info').html('The correct response was: ' + question.correctAnswer);
-        setTimeout(this.reset, 1000);
+        setTimeout(this.reset, 1500);
     },
     displayCorrectAnswer: function (question) {
         $('#mainPage').addClass('d-none');
         $('#responsePage').removeClass('d-none');
         $('#message').html('That\'s correct!');
         $('#info').html(question.funFact);
-        setTimeout(this.reset, 1000);
+        setTimeout(this.reset, 1500);
     },
     displayResults: function () {
         let grade = questions.gradeQuiz();

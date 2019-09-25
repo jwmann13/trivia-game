@@ -4,7 +4,7 @@ class Question {
         this.answerSet = q.answerSet;
         this.correctAnswer = q.correctAnswer;
         this.funFact = q.funFact;
-        this.time = 10;
+        this.time = 30;
         this.clock;
         this.answered = false;
         this.answerState = {

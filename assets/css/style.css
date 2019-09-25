@@ -20,3 +20,22 @@ body{
     font-weight: bolder;
     cursor: pointer;
 }
+
+@media only screen and (max-width: 980px){
+
+}
+
+@media only screen and (max-width: 768px){
+    
+}
+
+@media only screen and (max-width: 600px){
+    .container{
+        position: absolute;
+        top: 15%;
+        left: 0%;
+        max-width: 100%;
+        background-color: aquamarine;
+        padding: 3%;
+    }
+}

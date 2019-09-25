@@ -4,27 +4,24 @@ class Question {
         this.answerSet = q.answerSet;
         this.correctAnswer = q.correctAnswer;
         this.funFact = q.funFact;
-        this.time = 30;
+        this.time = 10;
         this.clock;
         this.answered = false;
+        this.answerState = {
+            correct: false,
+            wrong: false,
+            unanswered: false
+        };
     }
     checkAnswer(guess) {
         if (guess.data('index') === this.answerSet.indexOf(this.correctAnswer)) {
             clearTimeout(this.clock);
             this.answered = true;
-            if (counter === questions.length - 1) {
-                ResponsePage.displayResults();
-            } else {
-                ResponsePage.displayCorrectAnswer(this);
-            }
+            ResponsePage.displayCorrectAnswer(this);
         } else {
             clearTimeout(this.clock);
             this.answered = false;
-            if (counter === questions.length - 1) {
-                ResponsePage.displayResults();
-            } else {
-                ResponsePage.displayWrongAnswer(this);
-            }
+            ResponsePage.displayWrongAnswer(this);
         }
     }
     display() {
@@ -48,40 +45,43 @@ class Question {
             if (time <= 0) {
                 inst.time = time;
                 clearTimeout(inst.clock);
-                if (counter === questions.length - 1) {
-                    ResponsePage.displayResults();
-                } else {
-                    ResponsePage.displayTimesUp(inst);
-                }
+                ResponsePage.displayTimesUp(inst);
             }
         }, 1000);
+    }
+    grade(){
+        if (this.answered) {
+            this.answerState.correct = true;
+        } else if (this.time === 0) {
+            this.answerState.unanswered = true;
+        } else {
+            this.answerState.wrong = true;
+        }
+        return this.answerState;
     }
 };
 
 class QuestionGroup {
-     constructor (group){
-         this.counter = 0;
-         this.questionArray = group;
-         this.gradedQuiz = {
+    constructor(group) {
+        this.questionArray = group;
+        this.gradedQuiz = {
             'correct': 0,
             'wrong': 0,
             'unanswered': 0
         };
-     }
-     gradeQuiz() {
-        let corrects = 0;
-        let wrongs = 0;
-        let unanswered = 0;
-        for (let i = 0; i < this.questionArray.length; i++) {
-            const element = this.questionArray[i];
-            if (element.answered) {
-                this.gradedQuiz.correct = corrects++;
-            } else if (element.time <= 0) {
-                this.gradedQuiz.unanswered = unanswered++;
-            } else {
-                this.gradedQuiz.wrong = wrongs++;
+    }
+    gradeQuiz() {
+        this.questionArray.forEach((element)=> {
+            let state = element.grade();
+            if (state.correct) {
+                this.gradedQuiz.correct++;
+            } else if (state.wrong){
+                this.gradedQuiz.wrong++;
+            } else if (state.unanswered){
+                this.gradedQuiz.unanswered++;
             }
-        }
+        });
+        console.log(this.gradedQuiz);
         return this.gradedQuiz;
     }
 }

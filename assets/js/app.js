@@ -4,13 +4,15 @@ $(document).ready(function () {
     ResponsePage.displayStartPage();
     $('#startBtn').on('click', function () {
         $('#startPage').addClass('d-none');
-        questions[counter].display();
-        questions[counter].timer();
+        questions.questionArray[counter].display();
+        questions.questionArray[counter].timer();
     });
     $('.answer').on('click', function (event) {
-        questions[counter].checkAnswer($(this));
+        questions.questionArray[counter].checkAnswer($(this));
     });
+    $('#resetBtn').on('click', function (event) {
 
+    });
 });
 
 let ResponsePage = {
@@ -22,72 +24,82 @@ let ResponsePage = {
         $('#responsePage').removeClass('d-none');
         $('#message').html('Time\'s up!');
         $('#info').html('Answer a little faster next time!');
-        setTimeout(this.reset, 3000);
+        setTimeout(this.reset, 1000);
     },
     displayWrongAnswer: function (question) {
         $('#mainPage').addClass('d-none');
         $('#responsePage').removeClass('d-none');
         $('#message').html('That\'s the wrong answer!');
         $('#info').html('The correct response was: ' + question.correctAnswer);
-        setTimeout(this.reset, 3000);
+        setTimeout(this.reset, 1000);
     },
     displayCorrectAnswer: function (question) {
         $('#mainPage').addClass('d-none');
         $('#responsePage').removeClass('d-none');
         $('#message').html('That\'s correct!');
         $('#info').html(question.funFact);
-        setTimeout(this.reset, 3000);
+        setTimeout(this.reset, 1000);
     },
     displayResults: function () {
+        let grade = questions.gradeQuiz();
         $('#mainPage').addClass('d-none');
         $('#resultPage').removeClass('d-none');
-        $('#percentage').html();
-        $('#ratio').html();
+        $('#percentage').html(Math.floor((grade.correct / questions.questionArray.length)*100) + "%");
+        $('#ratio').html("Correct: " + grade.correct + "</br>Wrong: " + grade.wrong + "</br>Unanswered: " + grade.unanswered);
     },
     reset: function () {
         $('#responsePage').addClass('d-none');
         $('#mainPage').removeClass('d-none');
         counter++;
-        questions[counter].timer()
-        questions[counter].display();
+        if (counter === questions.questionArray.length) {
+            ResponsePage.displayResults();
+        } else {
+            questions.questionArray[counter].timer()
+            questions.questionArray[counter].display();
+        }
     }
 };
 
+function fullReset(){
+    counter = 0;
+
+}
+
 let questions =
-    // new QuestionGroup(
-    [
-        new Question({
-            question: "Which composers form the 'Three B's' of classical music?",
-            answerSet: ["Buttigigeg, Berkowitz, and Bond", "Beelzebub, Bertram, and Bozo", "Berlioz, Barney, and Brin", "Bach, Beethoven, and Brahms"],
-            correctAnswer: "Bach, Beethoven, and Brahms",
-            funFact: "These composers all lived at different times and are meant to represent the best of the different eras."
-        }),
-        new Question({
-            question: "Mozart lived in which century?",
-            answerSet: ["18th century", "13th century", "20th century", "23rd century"],
-            correctAnswer: "18th century",
-            funFact: "The 1700s are known as the Classical Period."
-        }),
-        new Question({
-            question: "Gregorian chant was practiced by what type of people?",
-            answerSet: ["Merchants", "Monks", "Farmers", "Royalty"],
-            correctAnswer: "Monks",
-            funFact: "Monks sang these simple chants to praise God."
-        }),
-        new Question({
-            question: "What nationality was Nikolai Rimsky-Korsakov, composer of 'Flight of the Bumblebee'?",
-            answerSet: ["English", "French", "Russian", "Dutch"],
-            correctAnswer: "Russian",
-            funFact: "Rimsky-Korsakov was a member of 'The Five', a group of Russian composers who intended to create a distinctly Russian style of music."
-        }),
-        new Question({
-            question: "J.S. Bach did not make his living as a composer but in what profession?",
-            answerSet: ["Church Organist", "Carpenter", "Tax Attorney", "Male Model"],
-            correctAnswer: "Church Organist",
-            funFact: "He worked at St. Thomas Church in Leipzig until his death in 1705."
-        })
-    ]
-// );
+    new QuestionGroup(
+        [
+            new Question({
+                question: "Which composers form the 'Three B's' of classical music?",
+                answerSet: ["Buttigigeg, Berkowitz, and Bond", "Beelzebub, Bertram, and Bozo", "Berlioz, Barney, and Brin", "Bach, Beethoven, and Brahms"],
+                correctAnswer: "Bach, Beethoven, and Brahms",
+                funFact: "These composers all lived at different times and are meant to represent the best of the different eras."
+            }),
+            new Question({
+                question: "Mozart lived in which century?",
+                answerSet: ["18th century", "13th century", "20th century", "23rd century"],
+                correctAnswer: "18th century",
+                funFact: "The 1700s are known as the Classical Period."
+            }),
+            new Question({
+                question: "Gregorian chant was practiced by what type of people?",
+                answerSet: ["Merchants", "Monks", "Farmers", "Royalty"],
+                correctAnswer: "Monks",
+                funFact: "Monks sang these simple chants to praise God."
+            }),
+            new Question({
+                question: "What nationality was Nikolai Rimsky-Korsakov, composer of 'Flight of the Bumblebee'?",
+                answerSet: ["English", "French", "Russian", "Dutch"],
+                correctAnswer: "Russian",
+                funFact: "Rimsky-Korsakov was a member of 'The Five', a group of Russian composers who intended to create a distinctly Russian style of music."
+            }),
+            new Question({
+                question: "J.S. Bach did not make his living as a composer but in what profession?",
+                answerSet: ["Church Organist", "Carpenter", "Tax Attorney", "Male Model"],
+                correctAnswer: "Church Organist",
+                funFact: "He worked at St. Thomas Church in Leipzig until his death in 1705."
+            })
+        ]
+    );
 
 
 // load start page

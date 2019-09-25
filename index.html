@@ -15,35 +15,38 @@
 </head>
 
 <body>
-    <div class="container-fluid m-0 d-none" id="mainPage">
-        <h1 class="display-2">Trivia Game</h1>
-        <div class="timer">Countdown</div>
-        <div class="question">Question?</div>
-        <ul>
-            <li class="lead answer" data-index="0">Answer</li>
-            <li class="lead answer" data-index="1">Answer</li>
-            <li class="lead answer" data-index="2">Answer</li>
-            <li class="lead answer" data-index="3">Answer</li>
-        </ul>
+    <div class="container d-flex justify-content-center">
+        <div class="m-0 d-none" id="mainPage">
+            <h1 class="display-2">Trivia Game</h1>
+            <div class="timer">Countdown</div>
+            <div class="question">Question?</div>
+            <ul>
+                <li class="lead answer" data-index="0">Answer</li>
+                <li class="lead answer" data-index="1">Answer</li>
+                <li class="lead answer" data-index="2">Answer</li>
+                <li class="lead answer" data-index="3">Answer</li>
+            </ul>
+        </div>
+
+        <div class="m-0 d-none" id="startPage">
+            <h1 class="display-2">Trivia Game</h1>
+            <button class="btn btn-dark" id="startBtn">Start</button>
+        </div>
+
+        <div class="m-0 d-none" id="responsePage">
+            <h1 class="display-2">Trivia Game</h1>
+            <p class="lead" id="message">Correct/Wrong</p>
+            <p class="lead" id="info">here's the correct answer or a fun fact ok??</p>
+        </div>
+
+        <div class="m-0 d-none" id="resultPage">
+            <h1 class="display-2">Trivia Game</h1>
+            <p class="lead" id="percentage">number%</p>
+            <p class="lead" id="ratio">x out of y questions correct</p>
+            <button class="btn btn-dark" id="resetBtn">Reset</button>
+        </div>
     </div>
 
-    <div class="container-fluid m-0 d-none" id="startPage">
-        <h1 class="display-2">Trivia Game</h1>
-        <button class="btn btn-dark" id="startBtn">Start</button>
-    </div>
-
-    <div class="container-fluid m-0 d-none" id="responsePage">
-        <h1 class="display-2">Trivia Game</h1>
-        <p class="lead" id="message">Correct/Wrong</p>
-        <p class="lead" id="info">here's the correct answer or a fun fact ok??</p>
-    </div>
-    
-    <div class="container-fluid m-0 d-none" id="resultPage">
-        <h1 class="display-2">Trivia Game</h1>
-        <p class="lead" id="percentage">number%</p>
-        <p class="lead" id="ratio">x out of y questions correct</p>
-        <button class="btn btn-dark" id="resetBtn">Reset</button>
-    </div>
     <script src="assets/js/objects.js"></script>
     <script type="text/javascript" src="assets/js/app.js"></script>
 </body>

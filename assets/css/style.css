@@ -8,7 +8,7 @@ body{
     /* align-self: center; */
     top: 8%;
     left: 25%;
-    width: 50%;
+    max-width: 50%;
     background-color: aquamarine;
     padding: 3%;
 }

@@ -93,64 +93,80 @@ function fullReset() {
             answerSet: ["Church Organist", "Carpenter", "Tax Attorney", "Male Model"],
             correctAnswer: "Church Organist",
             funFact: "He worked at St. Thomas Church in Leipzig until his death in 1705."
+        }),
+        new Question({
+            question: "What French musical movement was associated with composers like Maurice Ravel and Claude Debussy?",
+            answerSet: ["Spectralism", "Hedonism", "Impressionism", "Chromaticism"],
+            correctAnswer: "Impressionism",
+            funFact: "The movement is sometimes aligned with the movement in painting of the same name but musical Impressionism came later"
+        }),
+        new Question({
+            question: "Which Soviet era composer famously wrote music that went under harsh scrutiny by Joseph Stalin?",
+            answerSet: ["Mikhail Gorbachev", "Dimitri Shostakovich", "Pyotyr Tchaicovsky", "Fyodyr Dostoyevsky"],
+            correctAnswer: "Dimitri Shostakovich",
+            funFact: "Shostakovich escaped the USSR to the United States toward the end of his life."
+        }),
+        new Question({
+            question: "A fugue is a musical form characterized by what compositional feature?",
+            answerSet: ["Homophony", "Polytonality", "Pain", "Imitation"],
+            correctAnswer: "Imitation",
+            funFact: "Fugues were a favorite form of the Baroque era because the dense imitative texture could show off a composer's prowess."
         })
     ]);
     ResponsePage.displayStartPage();
 }
 
 let questions =
-    new QuestionGroup(
-        [
-            new Question({
-                question: "Which composers form the 'Three B's' of classical music?",
-                answerSet: ["Buttigigeg, Berkowitz, and Bond", "Beelzebub, Bertram, and Bozo", "Berlioz, Barney, and Brin", "Bach, Beethoven, and Brahms"],
-                correctAnswer: "Bach, Beethoven, and Brahms",
-                funFact: "These composers all lived at different times and are meant to represent the best of the different eras."
-            }),
-            new Question({
-                question: "Mozart lived in which century?",
-                answerSet: ["18th century", "13th century", "20th century", "23rd century"],
-                correctAnswer: "18th century",
-                funFact: "The 1700s are known as the Classical Period."
-            }),
-            new Question({
-                question: "Gregorian chant was practiced by what type of people?",
-                answerSet: ["Merchants", "Monks", "Farmers", "Royalty"],
-                correctAnswer: "Monks",
-                funFact: "Monks sang these simple chants to praise God."
-            }),
-            new Question({
-                question: "What nationality was Nikolai Rimsky-Korsakov, composer of 'Flight of the Bumblebee'?",
-                answerSet: ["English", "French", "Russian", "Dutch"],
-                correctAnswer: "Russian",
-                funFact: "Rimsky-Korsakov was a member of 'The Five', a group of Russian composers who intended to create a distinctly Russian style of music."
-            }),
-            new Question({
-                question: "J.S. Bach did not make his living as a composer but in what profession?",
-                answerSet: ["Church Organist", "Carpenter", "Tax Attorney", "Male Model"],
-                correctAnswer: "Church Organist",
-                funFact: "He worked at St. Thomas Church in Leipzig until his death in 1705."
-            }),
-            new Question({
-                question: "What French musical movement was associated with composers like Maurice Ravel and Claude Debussy?",
-                answerSet: ["Spectralism", "Hedonism", "Impressionism", "Chromaticism"],
-                correctAnswer: "Impressionism",
-                funFact: "The movement is sometimes aligned with the movement in painting of the same name but musical Impressionism came later"
-            }),
-            new Question({
-                question: "Which Soviet era composer famously wrote music that went under harsh scrutiny by Joseph Stalin?",
-                answerSet: ["Mikhail Gorbachev", "Dimitri Shostakovich", "Pyotyr Tchaicovsky", "Fyodyr Dostoyevsky"],
-                correctAnswer: "Dimitri Shostakovich",
-                funFact: "Shostakovich escaped the USSR to the United States toward the end of his life."
-            }),
-            new Question({
-                question: "A fugue is a musical form characterized by what compositional feature?",
-                answerSet: ["Homophony", "Polytonality", "Pain", "Imitation"],
-                correctAnswer: "Imitation",
-                funFact: "Fugues were a favorite form of the Baroque era because the dense imitative texture could show off a composer's prowess."
-            })
-        ]
-    );
+    new QuestionGroup([
+        new Question({
+            question: "Which composers form the 'Three B's' of classical music?",
+            answerSet: ["Buttigigeg, Berkowitz, and Bond", "Beelzebub, Bertram, and Bozo", "Berlioz, Barney, and Brin", "Bach, Beethoven, and Brahms"],
+            correctAnswer: "Bach, Beethoven, and Brahms",
+            funFact: "These composers all lived at different times and are meant to represent the best of the different eras."
+        }),
+        new Question({
+            question: "Mozart lived in which century?",
+            answerSet: ["18th century", "13th century", "20th century", "23rd century"],
+            correctAnswer: "18th century",
+            funFact: "The 1700s are known as the Classical Period."
+        }),
+        new Question({
+            question: "Gregorian chant was practiced by what type of people?",
+            answerSet: ["Merchants", "Monks", "Farmers", "Royalty"],
+            correctAnswer: "Monks",
+            funFact: "Monks sang these simple chants to praise God."
+        }),
+        new Question({
+            question: "What nationality was Nikolai Rimsky-Korsakov, composer of 'Flight of the Bumblebee'?",
+            answerSet: ["English", "French", "Russian", "Dutch"],
+            correctAnswer: "Russian",
+            funFact: "Rimsky-Korsakov was a member of 'The Five', a group of Russian composers who intended to create a distinctly Russian style of music."
+        }),
+        new Question({
+            question: "J.S. Bach did not make his living as a composer but in what profession?",
+            answerSet: ["Church Organist", "Carpenter", "Tax Attorney", "Male Model"],
+            correctAnswer: "Church Organist",
+            funFact: "He worked at St. Thomas Church in Leipzig until his death in 1705."
+        }),
+        new Question({
+            question: "What French musical movement was associated with composers like Maurice Ravel and Claude Debussy?",
+            answerSet: ["Spectralism", "Hedonism", "Impressionism", "Chromaticism"],
+            correctAnswer: "Impressionism",
+            funFact: "The movement is sometimes aligned with the movement in painting of the same name but musical Impressionism came later"
+        }),
+        new Question({
+            question: "Which Soviet era composer famously wrote music that went under harsh scrutiny by Joseph Stalin?",
+            answerSet: ["Mikhail Gorbachev", "Dimitri Shostakovich", "Pyotyr Tchaicovsky", "Fyodyr Dostoyevsky"],
+            correctAnswer: "Dimitri Shostakovich",
+            funFact: "Shostakovich escaped the USSR to the United States toward the end of his life."
+        }),
+        new Question({
+            question: "A fugue is a musical form characterized by what compositional feature?",
+            answerSet: ["Homophony", "Polytonality", "Pain", "Imitation"],
+            correctAnswer: "Imitation",
+            funFact: "Fugues were a favorite form of the Baroque era because the dense imitative texture could show off a composer's prowess."
+        })
+    ]);
 
 
 // load start page
